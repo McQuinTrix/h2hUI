@@ -1,0 +1,474 @@
+
+/*********** INFORMATION *****************************
+
+- document:  Stick It. - extensions stylesheet
+- author:    Capelle @ Codecanyon
+- profile:   http://codecanyon.net/user/Capelle
+
+*****************************************************/
+
+
+/*  ==================
+    1. CONTACT FORM
+    ==================  */
+
+#stickit .field span.icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #fff;
+	background: #ddd;
+	font-size: 16px;
+	line-height: 40px;
+	text-align: center;
+	width: 38px;
+	height: 100%;
+}
+#stickit .field input,
+#stickit .field textarea,
+#stickit .field select {
+	padding: 12px 20px 10px 50px;
+	width: 100%;
+	color: #333;
+	font-size: 12px;
+	border: solid 1px #ddd;
+}
+#stickit .field textarea {
+	max-height: 120px;
+	height: 120px;
+	resize: none;
+	overflow: auto;
+	padding-left: 16px;
+}
+#stickit .field textarea:focus {
+	height: 160px;
+	max-height: 160px;
+}
+#stickit .field > input:hover,
+#stickit .field > input:focus,
+#stickit .field > select:hover,
+#stickit .field > select:focus,
+#stickit .field > textarea:hover,
+#stickit .field > textarea:focus {
+	border: solid 1px #333;
+	outline: none;
+}
+#stickit input:hover ~ span.icon,
+#stickit input:focus ~ span.icon,
+#stickit select:hover ~ span.icon,
+#stickit select:focus ~ span.icon,
+#stickit textarea:hover ~ span.icon,
+#stickit textarea:focus ~ span.icon {
+	outline: none;
+	background: #333;
+}
+
+/***** Select input *****/
+
+#stickit .field select {
+	background: none;
+	background-color: rgba(0,0,0,0);
+	height: auto;
+	padding-left: 47px;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+#stickit select.grayed {
+	color: #999;
+}
+#arrow-select,
+#arrow-select-svg {
+	background: #fff url('img/select.png') no-repeat 0 11px;
+	width: 44px;
+	height: 35px;
+	position: absolute;
+	right: 1px;
+	top: 1px;
+	pointer-events: none;
+	vertical-align: middle;
+	outline: none;
+	border: none;
+	z-index: 3;
+}
+#stickit select:hover ~ #arrow-select,
+#stickit select:focus ~ #arrow-select,
+#stickit select:hover ~ #arrow-select-svg,
+#stickit select:focus ~ #arrow-select-svg {
+	background: #fff url('img/select-focus.png') no-repeat 0 11px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#arrow-select-svg {
+		display: none; /* <-- Hide svg arrow in webkit browsers and IE9/10 (pointer events don't work in those IE) */
+	}
+}
+x:-o-prefocus, #arrow-select {
+	display: none; /* <-- Hack for Opera 12 */
+}
+
+/***** Placeholders *****/
+
+/*-- Webkit --*/
+#stickit input::-webkit-input-placeholder,
+#stickit textarea::-webkit-input-placeholder {
+	color: #999;
+}
+#stickit input:focus::-webkit-input-placeholder,
+#stickit textarea:focus::-webkit-input-placeholder {
+	color: #ccc;
+}
+/*-- Firefox 19 down --*/
+#stickit input:-moz-placeholder,
+#stickit textarea:-moz-placeholder {
+	color: #999;
+}
+#stickit input:focus:-moz-placeholder,
+#stickit textarea:focus:-moz-placeholder {
+	color: #ccc;
+}
+/*-- Firefox 19 up --*/
+#stickit input::-moz-placeholder,
+#stickit textarea::-moz-placeholder {
+	color: #999;
+}
+#stickit input:focus::-moz-placeholder,
+#stickit textarea:focus::-moz-placeholder {
+	color: #ccc;
+}
+/*-- IE 10+ --*/
+#stickit input:-ms-input-placeholder,
+#stickit textarea:-ms-input-placeholder {
+	color: #999;
+}
+#stickit input:focus:-ms-input-placeholder,
+#stickit textarea:focus:-ms-input-placeholder {
+	color: #ccc;
+}
+/*-- IE 9 --*/
+#stickit .ie9-placeholder {
+	color: #999 !important;
+}
+#stickit .ie9-placeholder:focus {
+	color: #ccc !important;
+}
+
+/***** Validations *****/
+
+#stickit .field input:required,
+#stickit .field textarea:required,
+#stickit .field select:required {
+	background: #fff url(img/required.png) no-repeat 100% 15px;
+	outline: none;
+	box-shadow: none;
+}
+#stickit .field input:hover:invalid,
+#stickit .field textarea:hover:invalid,
+#stickit .field select:hover:invalid {
+	background: #fff url(img/focused.png) no-repeat 100% 15px;
+	outline: none;
+	box-shadow: none;
+}
+#stickit .field input:required:valid,
+#stickit .field textarea:required:valid,
+#stickit .field select:required:valid {
+	background: #fff url(img/valid.png) no-repeat 100% 15px;
+	outline: none;
+	box-shadow: none;
+}
+#stickit .field input:focus:invalid,
+#stickit .field textarea:focus:invalid,
+#stickit .field select:focus:invalid {
+	background: #fff url(img/invalid.png) no-repeat 100% 15px;
+	outline: none;
+	box-shadow: none;
+}
+
+/***** Send button *****/
+
+#stickit input.send {
+	display: inline-block;
+	background: #FF2424;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	width: auto;
+	padding: 6px 28px;
+	border: none;
+	outline: none;
+	clear: none;
+}
+#stickit input.send:hover,
+#stickit input.send:focus {
+	border: none;
+	outline: none;
+	background: #333;
+	cursor: pointer;
+}
+
+/***** Tick checkboxes *****/
+
+#stickit label.tick {
+	width: auto;
+	position: relative;
+	display: inline-block;
+}
+#stickit label.tick:before {
+	position: absolute;
+	display: inline-block;
+	content: "";
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	border: solid 2px #ddd;
+}
+#stickit label.tick:after {
+	opacity: 0;
+	visibility: hidden;
+	content: "";
+	position: absolute;
+	width: 8px;
+	height: 4px;
+	background: transparent;
+	top: 6px;
+	left: 5px;
+	border: 2px solid #333;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+#stickit input:checked + label.tick:after {
+	opacity: 1;
+	visibility: visible;
+}
+#stickit label.tick span {
+	font-size: 11px;
+	color: #999;
+	padding-left: 26px;
+}
+#stickit label.tick:hover span {
+	color: #333;
+}
+
+
+/*  ==================
+    2. IFRAME VIDEO
+    ==================  */
+
+#stickit iframe {
+	width: 100%; /* Note: The width of the iframe is determinated by the responsive cell */
+	height: 370px; /* Note: Adjust the height for you video here */
+	float: left;
+}
+
+
+/*  ==================
+    3. TABS
+    ==================  */
+
+#stickit .tabs {
+	position: relative;
+	float: left;
+	width: 100%;
+}
+#stickit .tabs > div {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: auto;
+	width: 100%;
+	background: #fff;
+	z-index: -1;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+/***** Tab labels *****/
+
+#stickit input#t-1:checked ~ .tabs .tab-1,
+#stickit input#t-2:checked ~ .tabs .tab-2,
+#stickit input#t-3:checked ~ .tabs .tab-3,
+#stickit input#t-4:checked ~ .tabs .tab-4,
+#stickit input#t-5:checked ~ .tabs .tab-5 {
+	position: relative;
+	float: left;
+	z-index: 10;
+	opacity: 1;
+	visibility: inherit;
+}
+#stickit .tab-labels {
+	position: absolute;
+	bottom: 20px;
+	right: 30px;
+	z-index: 9999;
+}
+#stickit .tab-labels label {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	color: #fff;
+	background: #ddd;
+	text-align: center;
+}
+#stickit .tab-labels label:hover,
+#stickit input#t-1:checked ~ .tab-labels label.lb-1,
+#stickit input#t-2:checked ~ .tab-labels label.lb-2,
+#stickit input#t-3:checked ~ .tab-labels label.lb-3,
+#stickit input#t-4:checked ~ .tab-labels label.lb-4,
+#stickit input#t-5:checked ~ .tab-labels label.lb-5 {
+	background: #F62A2A;
+}
+
+/***** Tab title *****/
+
+#stickit .title.tabs {
+	font-size: 16px;
+	color: #bbb;
+	font-weight: 300;
+	text-transform: uppercase;
+	padding: 22px 30px;
+	white-space: nowrap;
+	border-top: solid 1px #f0f0f0;
+	display: block;
+	float: left;
+	width: 100%;
+}
+#stickit .title.tabs span {
+	padding-right: 16px;
+}
+
+
+/*  ==================
+    4. GOOGLE MAPS
+    ==================  */
+
+#stickit .map {
+	width: 100%;
+	height: 380px;
+	display: inline-block;
+	float: left;
+}
+#stickit .map-wrap {
+	padding: 14px;
+	width: 300px;
+}
+#stickit .map-wrap .b-title {
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #F62A2A;
+	padding-bottom: 4px;
+	display: block;
+	width: 100%;
+	margin-top: 6px;
+}
+#stickit .map-wrap p {
+	display: block;
+	clear: both;
+	font-size: 13px;
+	color: #999;
+	padding-bottom: 4px;
+}
+#stickit .map-wrap .b-info {
+	font-size: 12px;
+	color: #333;
+	margin-top: 12px;
+}
+#stickit .map-wrap .b-info span {
+	padding-right: 6px;
+}
+#stickit .map .gm-style a {
+	font-size: 11px;
+	padding: 0;
+	width: auto;
+}
+#stickit .map .gm-style a:hover {
+	background: none;
+}
+
+
+/*  ==================
+    5. CHART
+    ==================  */
+
+#stickit .bar {
+	display: block;
+	background: #f0f0f0;
+	height: 26px;
+	overflow: hidden;
+}
+#stickit .bar span {
+	display: block;
+	height: 100%;
+	font-size: 12px;
+	color: #fff;
+	line-height: 26px;
+	padding-left: 14px;
+	background: #FB5F5F;
+	margin-left: -105%;
+	-webkit-transition: margin 0.8s cubic-bezier(0.2,.6,.3,1) 0.2s;
+	-moz-transition: margin 0.8s cubic-bezier(0.2,.6,.3,1) 0.2s;
+	-ms-transition: margin 0.8s cubic-bezier(0.2,.6,.3,1) 0.2s;
+	-o-transition: margin 0.8s cubic-bezier(0.2,.6,.3,1) 0.2s;
+	transition: margin 0.8s cubic-bezier(0.2,.6,.3,1) 0.2s;
+}
+#stickit .bar span span {
+	-webkit-transition-delay: 0.6s;
+	-moz-transition-delay: 0.6s;
+	-ms-transition-delay: 0.6s;
+	-o-transition-delay: 0.6s;
+	transition-delay: 0.6s;
+}
+#stickit input.has-chart:checked ~ div .bar span {
+	margin: 0;
+}
+#stickit .bar span.value-1 {
+	width: 44%;
+}
+#stickit .bar span.value-2 {
+	width: 78%;
+}
+#stickit .bar span.value-3 {
+	width: 57%;
+}
+#stickit .bar span.value-4 {
+	width: 65%;
+}
+#stickit .bar span.value-5 {
+	width: 34%;
+}
+
+
+/*  ==================
+    6. TABLE
+    ==================  */
+
+#stickit .table.first {
+	background: #FB5F5F;
+	color: #fff;
+	padding-left: 10px;
+}
+#stickit .table .heading,
+#stickit .table .title {
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 6px 0;
+	margin-bottom: 4px;
+	border-bottom: solid 1px #ddd;
+}
+#stickit .table .heading {
+	color: #fff;
+}
+#stickit .table p {
+	padding: 10px 0;
+}
+#stickit .table.first p {
+	color: #fff;
+}

@@ -1,0 +1,256 @@
+		<html>
+		<head>
+			<meta charset="utf-8">
+			<script>
+			    paceOptions = {
+				    catchupTime : 10000,
+				    maxProgressPerFrame:2,
+				    ghostTime: Number.MAX_SAFE_INTEGER,
+				      checkInterval :{
+				        checkInterval: 10000
+				      },
+				      eventLag : {
+				        minSamples: 1,
+				        sampleCount: 30000000,
+				        lagThreshold: 1
+				      }
+				}
+  			</script>
+			<script src="jquery-2.2.0.min.js"></script>
+			<script src="TweenMax.min.js"></script>
+			<script src="cooltext.animations.js"></script>
+			<script src="cooltext.min.js"></script>
+			<script src="pace.js"></script>
+			<link rel="styleSheet" href="pace.css" type="text/css" media="screen">
+		</head>
+
+		<body class="pageBackground"> 
+	      <div class="logo">H2H</div>
+		  <div id="divDynamicProductAd" class="dynamicText"></div>
+			<script type="text/javascript">
+			$( document ).ready(function() {
+				var userName;
+				var roomName;
+				var requestOrigin;
+
+				function getUrlVars(locationURL) {
+			        var url = decodeURI(locationURL);
+			        var vars = {};
+			        var hashes = url.split("?")[1];
+			        if(hashes !=undefined){
+			          var hash = hashes.split('&');
+			          for (var i = 0; i < hash.length; i++) {
+			            params=hash[i].split("=");
+			            vars[params[0].toLowerCase()]= params[1];
+			          }
+
+			        }
+			        return vars;
+		      	};
+
+			      var urlParams = getUrlVars(window.location.href);
+			      if(urlParams!=undefined){
+			        if(urlParams.username && urlParams.roomname && urlParams.origin){
+			          userName = urlParams.username ;
+			          roomName = urlParams.roomname;
+					  requestOrigin = urlParams.origin;
+			        }
+			      };
+
+
+				setTimeout(function(){				
+						//window.location ='http://52.33.156.147:8089/h2hweb/index.html?username=' + userName +'&roomname='+roomName;
+                       
+							  $.ajax({
+							   url: "http://52.33.156.147:8089/h2h_data/h2h_launch_parameters?origin="+requestOrigin+"&user_display_name=" + userName +"&meeting_id=" + roomName +"&presenter=no",
+							   type: 'GET',
+							   success: function (resp) {  
+							   	   window.sessionStorage.setItem('userObject',JSON.stringify(resp.H2HReturn));
+							       window.location ='./index.html?username=' + userName +'&roomname='+roomName;
+							   },
+							   error: function(e) {
+							       alert('Error: '+e);
+							   }
+							});					
+
+				  		}, 1000);
+	  				});
+
+
+				
+
+			   $("#divDynamicProductAd").cooltext({
+				   sequence:[
+				      {
+				         action:"update",
+				         speed:100,
+				         text:"All Devices Supported - Windows, Mac, iOS & Android",
+				         css:{color:"#87CEFA"},
+				         stagger:100
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:100,
+				      	animation:"cool8", 
+				      	elements:"words", 
+				      	stagger:100
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:300,
+				      	animation:"cool213",
+				      	stagger:350
+				      },
+				      {
+				         action:"update",
+				         speed:100,
+				         text:"All Browsers Supported - IE, Chrome, Safari, Qihoo 360, QQ, Cheetah, Sougou & more",
+				         css:{color:"#DEB887", textShadow:""},
+				         stagger:100
+				      },
+				      {
+				      	action:"animation",
+				      	speed:300, 
+				      	animation:"cool8",
+				      	stagger:350
+				      },
+				      {
+				      	action:"animation",
+				      	speed:300, 
+				      	animation:"cool279",
+				      	stagger:350
+				      },
+				      {
+				         action:"update",
+				         speed:100,
+				         text:"24X7 Customer Support",
+				         css:{color:"#87CEFA", textShadow:""},
+				         stagger:100
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:300,
+				      	animation:"cool81",
+				      	stagger:350
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:300,
+				      	stagger:350,
+				      	animation:"cool233"
+				      },
+				      {
+				         action:"update",
+				         speed:100,
+				         text:"Most Secure & Scalable video conferenece tool available in today's market",
+				         css:{color:"#DEB887"},
+				         stagger:100
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:100,
+				      	animation:"cool98", 
+				      	elements:"words", 
+				      	stagger:100
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:300,
+				      	animation:"cool213",
+				      	stagger:350
+				      },
+				      {
+				         action:"update",
+				         speed:100,
+				         text:"Suuports Speech To Text Translation",
+				         css:{color:"#87CEFA", textShadow:""},
+				         stagger:100
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:300,
+				      	animation:"cool92",
+				      	stagger:350
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:300,
+				      	animation:"cool233",
+				      	stagger:350
+				      },
+				      {
+				         action:"update",
+				         speed:100,
+				         text:"Supports creation of unlimted number of private and public WhiteBoards",
+				         css:{color:"#DEB887", textShadow:""},
+				         stagger:100
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:300,
+				      	animation:"cool81",
+				      	stagger:350
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:300,
+				      	animation:"cool279",
+				      	stagger:350
+				      },
+				      {
+				         action:"update",
+				         speed:100,
+				         text:"Supports creation of Interactive presetations from files anywhere  - DropBox, Google Drive, Microsoft One Drive, Desktop, SlideShare etc",
+				         css:{color:"#87CEFA"},
+				         stagger:100
+				      },
+				      {
+				      	action:"animation", 
+				      	speed:300,
+				      	animation:"cool81",
+				      	stagger:350
+				      },
+				      {
+				      	action:"animation",
+				      	speed:300,
+				      	 animation:"cool279",
+				      	 stagger:350
+				      	}
+				   ],
+				   cycle:true
+				});
+		</script>
+
+
+		<style>
+			.pageBackground{
+				background: rgb(47, 64, 80);
+			}
+
+			.logo{
+			    color: rgba(87, 132, 112, 0.17);
+			    font-size: 16em;
+			    z-index: 100;
+			    padding-top: 10%;
+			    text-align:center;
+			    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+			}
+
+			.dynamicText {
+			    position: fixed;
+			    top: 50%;
+			    left:10%;
+			    right:10%;
+			    font-size: 3.0em;
+			    margin-top: 1%;
+			    text-align: center;
+			  
+			}
+
+			.ct-word{
+				font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+			}
+		</style>
+
+</body>
+</html>
